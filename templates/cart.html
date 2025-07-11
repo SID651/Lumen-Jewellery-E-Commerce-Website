@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/car.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.webp') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+
+<body>
+
+    <!--==header===============================-->
+    <header id="header">
+        <!--==top-bar================-->
+        <div class="header-top-bar">
+            <span> Welcome to Jewellery Store </span>
+        </div>
+        <!--==navigation=================-->
+        <nav class="navigation">
+            <!--**logo***-->
+            <a href="#" class="logo">
+                <img src="{{ url_for('static' , filename='images/logo.webp') }}" alt="logo">
+            </a>
+            <!--**menu**-->
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('category') }}">Category</a></li>
+                <li><a href="{{ url_for('product') }}"> Product</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('cart') }}">Cart</a></li>
+                <li><a href="{{ url_for('checkout') }}">Checkout</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            </ul>
+            <!--*right-nav**-->
+            <div class="right-nav">
+                <a href="#" class="nav-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="{{ url_for('admin') }}" class="nav-user">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="{{ url_for('cart') }}" class="nav-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Shopping Cart</h2>
+        {% if cart_items %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td><img src="{{ url_for('static', filename='images/' ~ item.image) }}" alt="{{ item.name }}" class="product-image"></td>
+                    <td>{{ item.name }}</td>
+                    <td>Rs.{{ item.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>Rs.{{ item.total }}</td>
+                    <td class="actions">
+                        <form action="{{ url_for('update_cart') }}" method="POST" style="display:inline;">
+                            <input type="hidden" name="product_id" value="{{ item._id }}">
+                            <input type="hidden" name="action" value="add">
+                            <button type="submit" class="add-btn">Add</button>
+                        </form>
+                        <form action="{{ url_for('update_cart') }}" method="POST" style="display:inline;">
+                            <input type="hidden" name="product_id" value="{{ item._id }}">
+                            <input type="hidden" name="action" value="remove">
+                            <button type="submit" class="remove-btn">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="total">
+            <h3>Total: Rs.{{ total_amount }}</h3>
+        </div>
+
+        <!-- Buy Now Button -->
+        <div class="buy-now-container" style="text-align: right; margin-top: 20px;">
+            <form action="{{ url_for('checkout') }}" method="GET">
+                <button type="submit" class="buy-now-btn" style="background-color: #ff6600; color: white; border: none; padding: 10px 20px; font-size: 18px; cursor: pointer; border-radius: 5px;">
+                    Buy Now
+                </button>
+            </form>
+        </div>
+
+        {% else %}
+        <p>Your cart is empty.</p>
+        {% endif %}
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-company-box">
+                <a href="#" class="logo">
+                    <img src="{{ url_for('static' , filename= 'images/logo.webp') }}" alt="logo" />
+                </a>
+                <p>Our jewellery is certified by prestigious authorities such as BIS Hallmark, SGL, IGI, and GSI to ensure each inspired by different facets of life. From gold and platinum to diamonds and gemstones, offers 100% certified jewellery designs</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!--***link-box***********-->
+            <div class="footer-link-box">
+                <strong>Main Links</strong>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Feature</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-link-box">
+                <strong>External Links</strong>
+                <ul>
+                    <li><a href="#">Our Products</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Terms and COnditions</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <span class="footer-owner">Made By SVSS</span>
+                <span class="copyright">&#169; Copyright 2024 - SVSS</span>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

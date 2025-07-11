@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/check.css') }} ">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.webp') }} ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+
+    <!--==header===============================-->
+    <header id="header">
+        <!--==top-bar================-->
+        <div class="header-top-bar">
+            <span> Welcome to Jewellery Store </span>
+        </div>
+        <!--==navigation=================-->
+        <nav class="navigation">
+            <!--**logo***-->
+            <a href="#" class="logo">
+                <img src="{{ url_for('static' , filename='images/logo.webp') }}" alt="logo" />
+            </a>
+            <!--**menu**-->
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('category') }}">Category</a></li>
+                <li><a href="{{ url_for('product') }}"> Product</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('cart') }}">Cart</a></li>
+                <li><a href="{{ url_for('checkout') }}">Checkout</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            </ul>
+            <style>
+                a:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+            </style>
+            
+            <!--*right-nav**-->
+            <div class="right-nav">
+                <a href="#" class="nav-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="{{ url_for('admin') }}" class="nav-user">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="#" class="nav-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>
+                        0
+                    </span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <body>
+        <div class="container">
+            <h1>Payment Details</h1>
+            <form action="{{ url_for('checkout') }}" method="post">
+                <div class="user-details">
+                    <h2>User Details</h2>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" placeholder="Enter your address" required>
+    
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+    
+                <div class="payment-methods">
+                    <h2>Payments are accepted via</h2>
+                    <div class="payment-option">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPOujiuvk6HodyG0V-_mK5IUK80Njkuii4jg&s" alt="PhonePe">
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*04xD0gseEr_g4wA7NLQ5iw.png" alt="Paytm">
+                        <img src="https://i.pinimg.com/736x/9d/4d/2d/9d4d2dca590fba731f952ab71b1afc2c.jpg" alt="Google Pay">
+                    </div>
+    
+                    <div class="payment-option">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjeyzPlLNhz07uJkokHAtoIju-KWdGKg4Pwg&s" alt="Cash on Delivery">
+                        <h3>Cash on Delivery</h3>
+                    </div>
+                </div>
+    
+                <div>
+                    <h2 style="margin-bottom: 10px;">Payment Details</h2>
+                    <label for="payment_name" style="display: block; margin-bottom: 5px;">Name:</label>
+                    <input type="text" id="payment_name" name="payment_name" placeholder="Payment name" required style="width: 100%; padding: 8px; margin-bottom: 20px;">
+                    <h2 style="margin-bottom: 10px;">UTR No.</h2>
+                    <label for="utr" style="display: block; margin-bottom: 5px;">UTR No.:</label>
+                    <input type="text" id="utr" name="utr" placeholder="Enter UTR no." required style="width: 100%; padding: 8px; margin-bottom: 20px;">
+                    <h2 style="margin-bottom: 10px;">Transaction Id</h2>
+                    <label for="transaction" style="display: block; margin-bottom: 5px;">Transaction:</label>
+                    <input type="text" id="transaction" name="transaction" placeholder="Enter transaction id" required style="width: 100%; padding: 8px; margin-bottom: 20px;">
+                    <button type="submit" class="btn-submit">Place Order</button>
+                </div>
+            </form>
+        </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-company-box">
+                <a href="#" class="logo">
+                    <img src="{{ url_for('static' , filename= 'images/logo.webp') }}" alt="logo" />
+                </a>
+                <p>Our jewellery is certified by prestigious authorities such as BIS Hallmark, SGL, IGI, and GSI to ensure each inspired by different facets of life. From gold and platinum to diamonds and gemstones, offers 100% certified jewellery designs</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!--***link-box***********-->
+            <div class="footer-link-box">
+                <strong>Main Links</strong>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Feature</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-link-box">
+                <strong>External Links</strong>
+                <ul>
+                    <li><a href="#">Our Products</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Terms and COnditions</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <span class="footer-owner">Made By SVSS</span>
+                <span class="copyright">&#169; Copyright 2024 - SVSS</span>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }} ">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.webp') }} ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+
+    <!--==header===============================-->
+    <header id="header">
+        <!--==top-bar================-->
+        <div class="header-top-bar">
+            <span> Welcome to Jewellery Store </span>
+        </div>
+        <!--==navigation=================-->
+        <nav class="navigation">
+            <!--**logo***-->
+            <a href="#" class="logo">
+                <img src="{{ url_for('static' , filename='images/logo.webp') }}" alt="logo" />
+            </a>
+            <!--**menu**-->
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('category') }}">Category</a></li>
+                <li><a href="{{ url_for('product') }}"> Product</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('cart') }}">Cart</a></li>
+                <li><a href="{{ url_for('checkout') }}">Checkout</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            </ul>
+            <!--*right-nav**-->
+            <div class="right-nav">
+                <a href="#" class="nav-search">
+                    <i class="fa-regular fa-magnifying-glass"></i>
+                </a>
+                <a href="{{ url_for('admin') }}" class="nav-user">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="{{ url_for('cart') }}" class="nav-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>
+                        0
+                    </span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!--==MainBanner=======================-->
+    <section id="main-banner">
+        <div class="main-banner-box">
+            <div class="banner-slides">
+                <img src="{{ url_for('static', filename='images/banner_1.jpg') }}" alt="Banner 1">
+                <img src="{{ url_for('static', filename='images/banner_2.jpg') }}" alt="Banner 2">
+                <img src="{{ url_for('static', filename='images/banner_3.jpg') }}" alt="Banner 3">
+            </div>
+            
+        </div>
+    </section>
+    
+    <!--==serviceinfo=======================-->
+    <section class="what-we-provide">
+        <div class="w-info-box">
+            <div class="w-info-icon">
+                <i class="fa-solid fa-plane"></i>
+            </div>
+            <div class="w-info-text">
+                <strong>Free Shipping</strong>
+                <p>Lorem ipsum dolor sit.</p>
+            </div>
+        </div>
+        <div class="w-info-box">
+            <div class="w-info-icon">
+                <i class="fa-regular fa-comments"></i>
+            </div>
+            <div class="w-info-text">
+                <strong>Support 24/7</strong>
+                <p>Lorem ipsum dolor sit.</p>
+            </div>
+        </div>
+        <div class="w-info-box">
+            <div class="w-info-icon">
+                <i class="fa-regular fa-credit-card"></i>
+            </div>
+            <div class="w-info-text">
+                <strong>100% Payment Secure</strong>
+                <p>Lorem ipsum dolor sit.</p>
+            </div>
+        </div>
+    </section>
+    <section class="product-grid-half">
+        <div class="product-grid-box product-grid-box2">
+            <img src="{{ url_for('static', filename='images/box1.jpg') }}" alt="product">
+            <div class="product-grid-text">
+                <span>
+                    Beautiful
+                </span>
+                <strong>Wedding ring</strong>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="product-grid-box product-grid-box1">
+            <img src="{{ url_for('static' , filename='images/box2.jpg') }}" alt="product">
+            <div class="product-grid-text">
+                <span>
+                    Earrings
+                </span>
+                <strong>Floary</strong>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+        <div class="product-grid-box product-grid-box3">
+            <img src="{{ url_for('static' , filename= 'images/box3.jpg') }}" alt="product">
+            <div class="product-grid-text">
+                <span>
+                    New Arrivals
+                </span>
+                <strong>Pearl Neclaces</strong>
+                <a href="#">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!--==new-product===================-->
+
+    <section id="new_product">
+        <div class="new-product-heading">
+            <h2>Our Products</h2>
+            <p>Add our products to weekly line</p>
+        </div>
+
+        <div class="new-product-container">
+
+            <div class="swiper mySwiperNewProduct">
+                <div class="swiper-wrapper">
+
+
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+                            <a href="#" class="new-product-img">
+                                <img src="{{ url_for('static' ,filename= 'images/1.jpg') }}" alt="product" />
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to
+                                    Cart</button>
+                            </a>
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Blue Stone Ring for Women</a>
+                                <span>RS.86020.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+                            <a href="#" class="new-product-img">
+                                <img src="{{ url_for('static' , filename= 'images/2.jpg') }}" alt="product" />
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to
+                                    Cart</button>
+                            </a>
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Saphhire Ring for Women</a>
+                                <span>Rs.12020.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+                            <a href="#" class="new-product-img">
+                                <img src="{{ url_for('static' , filename= 'images/k5.jpg') }}"alt="product" />
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to
+                                    Cart</button>
+                            </a>
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Earings for Women</a>
+                                <span>RS.65020.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+                            <a href="#" class="new-product-img">
+                                <img src="{{ url_for('static' ,filename= 'images/4.jpg') }}" alt="product" />
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to
+                                    Cart</button>
+                            </a>
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Bracelet for Women</a>
+                                <span>RS.12020.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+                            <a href="#" class="new-product-img">
+                                <img src="{{ url_for('static' , filename= 'images/6.jpg') }}" alt="product" />
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to
+                                    Cart</button>
+                            </a>
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Diamond Ring for Women</a>
+                                <span>Rs.43020.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+                            <a href="#" class="new-product-img">
+                                <img src="{{ url_for('static' , filename= 'images/product-6.jpg') }}" alt="product" />
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to
+                                    Cart</button>
+                            </a>
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Ring for Women</a>
+                                <span>RS.12020.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="new-product-box">
+                            <a href="#" class="new-product-img">
+                                <img src="{{ url_for('static' , filename= 'images/product-7.jpg') }}" alt="product" />
+                                <span>New</span>
+                                <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to
+                                    Cart</button>
+                            </a>
+                            <div class="new-product-text">
+                                <a href="#" class="new-product-title">Ring for Women</a>
+                                <span>Rs.23020.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- category==============================-->
+    <section id="category">
+        <div class="category-container">
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename= 'images/img1-middle.jpg') }}" alt="category" />
+                <strong>Ring</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename= 'images/img2-middle.jpg') }}" alt="category" />
+                <strong>Earings</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename= 'images/img3-middle.jpg') }}" alt="category" />
+                <strong>Necklaces</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename= 'images/img4-middle.jpg') }}" alt="category" />
+                <strong>Bracelets</strong>
+            </a>
+        </div>
+    </section>
+
+
+
+    <!--feauture product========================-->
+
+    <section id="new-product">
+        <div class="new-product-heading">
+            <h2>Featured products</h2>
+            <p>Add our Featured products to weekly lineup</p>
+        </div>
+        <div class="feature-product-container">
+            <div class="new-product-box">
+                <a href="#" class="new-product-img">
+                    <video src="{{ url_for('static', filename='images/aa.mp4') }}" autoplay muted loop></video>
+                    <span>New</span>
+                    <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                </a>
+                <div class="new-product-text">
+                    <a href="#" class="new-product-title">Exclusive Earrings</a>
+                    <span>Collections</span>
+                </div>
+            </div>
+            <div class="new-product-box">
+                <a href="#" class="new-product-img">
+                    <video src="{{ url_for('static', filename='images/bb.mp4') }}" autoplay muted loop></video>
+                    <span>New</span>
+                    <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                </a>
+                <div class="new-product-text">
+                    <a href="#" class="new-product-title">Exclusive Ring</a>
+                    <span>Collections</span>
+                </div>
+            </div>
+            <!-- Repeat the same structure for other products -->
+            <div class="new-product-box">
+                <a href="#" class="new-product-img">
+                    <video src="{{ url_for('static', filename='images/cc.mp4') }}" autoplay muted loop></video>
+                    <span>New</span>
+                    <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                </a>
+                <div class="new-product-text">
+                    <a href="#" class="new-product-title">Exclusive Bracelet</a>
+                    <span>Collections</span>
+                </div>
+            </div>
+            <div class="new-product-box">
+                <a href="#" class="new-product-img">
+                    <video src="{{ url_for('static', filename='images/dd.mp4') }}" autoplay muted loop></video>
+                    <span>New</span>
+                    <button class="new-product-cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</button>
+                </a>
+                <div class="new-product-text">
+                    <a href="#" class="new-product-title">Exclusive Chain</a>
+                    <span>Collections</span>
+                </div>
+            </div>
+            <!-- Add as many products as needed -->
+        </div>
+    </section>
+    
+    <!--testimonials=================================-->
+
+    <section id="clients">
+        <div class="client-heading">
+            <h3>Testimonials</h3>
+            <p>What they say</p>
+        </div>
+        <div class="client-box-container">
+
+            <!-- Swiper -->
+            <div class="swiper mySwiperTestomonials">
+                <div class="swiper-wrapper">
+
+                    <!--slide-->
+                    <div class="swiper-slide">
+                        <div class="client-box">
+                            <div class="client-profile">
+                                <img src="{{ url_for('static' , filename='images/t1.jpg') }}" alt="client">
+                                <div class="profile-text">
+                                    <strong>Jessica</strong>
+                                    <span>client</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p>Yesterday I got this amazing earring as a surprise from my hubby , products is so pretty, beautiful shine of diamond and what do i say about delivery ,it was packed so nicely in a blue box with warranty card in it. So so happy with your service. Thank you guys. Keep going like this.</p>
+                        </div>
+                    </div>
+                    <!--slide-->
+                    <div class="swiper-slide">
+                        <div class="client-box">
+                            <div class="client-profile">
+                                <img src="{{ url_for('static' , filename= 'images/t2.jpg') }}" alt="client">
+                                <div class="profile-text">
+                                    <strong>Adward James</strong>
+                                    <span>client</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p>This leaf style earrings is very much special for me as it is a surprise gift from my husband on our second marriage anniversary and secondly it is very well made and uniquely designed. I even couldn't have imagined that these unique design earrings would be mine.</p>
+                        </div>
+                    </div>
+                    <!--slide-->
+                    <div class="swiper-slide">
+                        <div class="client-box">
+                            <div class="client-profile">
+                                <img src="{{ url_for('static' , filename= 'images/t3.jpg') }}" alt="client">
+                                <div class="profile-text">
+                                    <strong>Raaghav Pandey</strong>
+                                    <span>client</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p>My wife had ordered this Muralidhar pendant on my birthday. Received the product in a very nice packing, with a letter and diamond certificate. The pendent was exactly as displayed on website. We both are very happy and like it a lot. I would definitely recommend. </p>
+                        </div>
+                    </div>
+                    <!--slide-->
+                    <div class="swiper-slide">
+                        <div class="client-box">
+                            <div class="client-profile">
+                                <img src="{{ url_for('static' , filename= 'images/t4.jpg') }}" alt="client">
+                                <div class="profile-text">
+                                    <strong>Venna Anny</strong>
+                                    <span>client</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p> came across BlueStone when I was looking to add a statement ring to my wardrobe. My husband and I fell in love with the wide range of designs and the helpful staff at stores; so much so that we picked out two rings - the Elaria and Baylea - to take home with us!</p>
+                        </div>
+                    </div>
+                    <!--slide-->
+                    <div class="swiper-slide">
+                        <div class="client-box">
+                            <div class="client-profile">
+                                <img src="{{ url_for('static' , filename= 'images/t5.jpg') }}" alt="client">
+                                <div class="profile-text">
+                                    <strong>Sastur Raag</strong>
+                                    <span>client</span>
+                                </div>
+                            </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione corporis aliquid
+                                doloribus, a
+                                numquam impedit deleniti perspiciatis tempore repellat. Ullam soluta eum quia, quas ipsa
+                                natus
+                                impedit dolorem! Omnis, exercitationem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <!--***heading*************************-->
+        <div class="blog heading">
+            <h3>Latest Blogs</h3>
+            <span>There are Latest Blog Posts</span>
+        </div>
+
+        <div class="blog-container">
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="{{ url_for('static' , filename= 'images/blog-img1.jpg') }}" alt="blog">
+                </div>
+                <div class="blog-text">
+                    <span>19 May 2024 / Jewellery</span>
+                    <a href="#" class="blog-title">Marvellous Jewellery Collection</a>
+                    <p>My silver handmade chain is my favourite necklace ever. A beautiful investment piece from a talented designer who knows how important good communication and customer service are.
+
+                        Rhiannon - Scotland
+                        
+                        I had been looking around for a birthday present for my girlfriend with not much luck. We both.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="{{ url_for('static' , filename= 'images/blog-img2.jpg') }}" alt="blog">
+                </div>
+                <div class="blog-text">
+                    <span>19 May 2024 / Jewellery</span>
+                    <a href="#" class="blog-title">Best Wedding Collections</a>
+                    <p>Thanks so much for sending such joy my way! I was impressed from the moment I opened my package. Each piece of jewellery was individually wrapped to look like a million dollars ... almost too good to open! The jewellery itself is awesome.
+
+                        Cherie - Warren, NSW.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="{{ url_for('static' , filename= 'images/blog-img3.jpg') }}" alt="blog">
+                </div>
+                <div class="blog-text">
+                    <span>19 May 2024 / Jewellery</span>
+                    <a href="#" class="blog-title">Best Family Jewellery Collection</a>
+                    <p>Where do I start! So many positive things to say ... Beautiful quality and design. Great small Australian business with wonderful ethical and environmental values ... I love this jewellery and hope to eventually have one of everything!
+
+                        Alison - Canberra, Australia</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--==footer=========================================-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-company-box">
+                <a href="#" class="logo">
+                    <img src="{{ url_for('static' , filename= 'images/logo.webp') }}" alt="logo" />
+                </a>
+                <p>Our jewellery is certified by prestigious authorities such as BIS Hallmark, SGL, IGI, and GSI to ensure each inspired by different facets of life. From gold and platinum to diamonds and gemstones, offers 100% certified jewellery designs</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!--***link-box***********-->
+            <div class="footer-link-box">
+                <strong>Main Links</strong>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Feature</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-link-box">
+                <strong>External Links</strong>
+                <ul>
+                    <li><a href="#">Our Products</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Terms and COnditions</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <span class="footer-owner">Made By SVSS</span>
+                <span class="copyright">&#169; Copyright 2024 - SVSS</span>
+            </div>
+
+        </div>
+    </footer>
+
+    <!--Swiper JS-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiperNewProduct", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                1024: {/*this code can apply before 1024px screen width*/
+                    slidesPerView: 5,/* product per slide*/
+                    spaceBetween: 20,/*gape*/
+                },
+            },
+        });
+
+        var swiper = new Swiper(".mySwiperTestomonials", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

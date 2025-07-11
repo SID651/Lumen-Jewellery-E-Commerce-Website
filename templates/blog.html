@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--==title============================-->
+    <title>Jewellery Store</title>
+    <!--==CSS==============================-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }} ">
+    <!--==fav-icon=========================-->
+    <link rel="shortcut icon" href="{{url_for('static' ,filename='images/logo.webp') }}" >
+    <!--==import-fort======================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!--fontawesome-for-icons================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--==swiper-slider-css================-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+
+    <!--==header===============================-->
+    <header id="header">
+        <!--==top-bar================-->
+        <div class="header-top-bar">
+            <span> Welcome to Jewellery Store </span>
+        </div>
+        <!--==navigation=================-->
+        <nav class="navigation">
+            <!--**logo***-->
+            <a href="#" class="logo">
+                <img src="{{ url_for('static' , filename='images/logo.webp') }}" alt="logo" />
+            </a>
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('category') }}">Category</a></li>
+                <li><a href="{{ url_for('product') }}"> Product</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('cart') }}">Cart</a></li>
+                <li><a href="{{ url_for('checkout') }}">Checkout</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            </ul>
+            <!--*right-nav**-->
+            <div class="right-nav">
+                <a href="#" class="nav-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="{{ url_for('admin') }}" class="nav-user">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="#" class="nav-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>
+                        0
+                    </span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="blog">
+
+        <!--***heading*************************-->
+        <div class="blog heading">
+            <h3>Latest Blogs</h3>
+            <span>There are Latest Blog Posts</span>
+        </div>
+
+        <div class="blog-container">
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="{{ url_for('static' , filename='images/blog-img1.jpg') }}" alt="blog">
+                </div>
+                <div class="blog-text">
+                    <span>19 May 2024 / Jewellery</span>
+                    <a href="#" class="blog-title">Jewellery Trends 2023: Easy, Effective And Enticing</a>
+                    <p>Fun charms and random chunky earrings combined with a gemstone or a diamond for elegant beauty is the trend I’m talking about here. It’s not your usual fun earrings that used to feel empty when worn alone, but the new latest ones with a definite addition to them. These fun earrings are made of enamel, they are colourful and decorated with crystals, perfect to pair with any formal or casual outfit. The stones and diamonds make them a really fun addition to mundane business looks. One can even pair them with a gown or a sundress because they are pretty and posh at the same time..</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="{{ url_for('static' , filename='images/12.jpg') }}" alt="blog">
+                </div>
+                <div class="blog-text">
+                    <span>19 May 2024 / Jewellery</span>
+                    <a href="#" class="blog-title">Exploring The Enchanting and Exquisite Beauty of Assam Traditional Jewellery</a>
+                    <p>One of India's most culturally diverse states, Assam is known for its exquisite traditional jewellery designs. Assam traditional jewellery is one of the prides of India’s rich cultural heritage. The state is rich in art, music, dance, cuisines and ornaments for both decorations of you and your house. During festivals, one can find a variety of Assam traditional jewellery being the centre of attraction at every nook and corner. This article will discuss the variety of designs and types of traditional Assamese.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+
+            <div class="blog-box">
+                <div class="blog-img">
+                    <img src="{{ url_for('static' , filename='images/blog-img3.jpg') }}" alt="blog">
+                </div>
+                <div class="blog-text">
+                    <span>19 May 2024 / Jewellery</span>
+                    <a href="#" class="blog-title">Daily Wear Gold Necklace Designs For An Everyday Royalty</a>
+                    <p>Gold is a luxury part of every Indian household and has been the same for centuries. Women love to wear gold, demanding a change in the daily wear of gold necklace designs. With a busy world and busier lives, effortless beauty is appreciated. Understanding and keeping the same in mind, the modern designs of gold necklaces are lightweight and hassle-free. The stylish but dainty gold</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-company-box">
+                <a href="#" class="logo">
+                    <img src="{{ url_for('static' , filename='images/logo.webp ') }}" alt="logo" />
+                </a>
+                <p>Our jewellery is certified by prestigious authorities such as BIS Hallmark, SGL, IGI, and GSI to ensure each inspired by different facets of life. From gold and platinum to diamonds and gemstones, offers 100% certified jewellery designs</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!--***link-box***********-->
+            <div class="footer-link-box">
+                <strong>Main Links</strong>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Feature</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-link-box">
+                <strong>External Links</strong>
+                <div class="footer-link-box">
+                    <strong>External Links</strong>
+                    <ul>
+                        <li><a href="#">Our Products</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Terms and COnditions</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span class="footer-owner">Made By SVSS</span>
+                <span class="copyright">&#169; Copyright 2024 - SVSS</span>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

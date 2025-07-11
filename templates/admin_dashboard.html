@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .admin-dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            bcheckout-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .container {
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 20px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .input-submit {
+            text-align: right;
+        }
+        .logout-btn {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .logout-btn:hover {
+            background-color: #e65c00;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-dashboard">
+        <header>
+            <h1>Admin Dashboard</h1>
+        </header>
+        
+        <div class="container">
+            <h2>Order Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Payment Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for checkout in checkouts %}
+                    <tr>
+                        <td>{{ checkout.firstname }}</td>
+                        <td>{{ checkout.email }}</td>
+                        <td>{{ checkout.address }}</td>
+                        <td>{{ checkout.product_name }}</td>
+                        <td>{{ checkout.quantity }}</td>
+                        <td>Rs.{{ checkout.price }}</td>
+                        <td>Rs.{{ checkout.total }}</td>
+                        <td>{{ checkout.payment_method }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>Contact Messages</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Message</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Contact Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contact_messages %}
+                <tr>
+                    <td>{{ contact.firstname }}</td>
+                    <td>{{ contact.lastname }}</td>
+                    <td>{{ contact.message}}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.address}}</td>
+                    <td>{{ contact.contactnumber}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Corrected Logout Form -->
+        <form action="{{ url_for('logout') }}" method="POST">
+            <div class="input-submit">
+                <button type="submit" class="logout-btn">LOGOUT</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

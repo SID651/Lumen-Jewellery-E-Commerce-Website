@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.webp') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+
+    <!--==header===============================-->
+    <header id="header">
+        <!--==top-bar================-->
+        <div class="header-top-bar">
+            <span> Welcome to Jewellery Store </span>
+        </div>
+        <!--==navigation=================-->
+        <nav class="navigation">
+            <!--**logo***-->
+            <a href="#" class="logo">
+                <img src="{{ url_for('static' , filename='images/logo.webp') }}" alt="logo">
+            </a>
+            <!--**menu**-->
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('category') }}">Category</a></li>
+                <li><a href="{{ url_for('product') }}"> Product</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('cart') }}">Cart</a></li>
+                <li><a href="{{ url_for('checkout') }}">Checkout</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            </ul>
+            <!--*right-nav**-->
+            <div class="right-nav">
+                <a href="#" class="nav-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="{{ url_for('admin') }}" class="nav-user">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="#" class="nav-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>
+                        0
+                    </span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- category==============================-->
+    <section id="category">
+        <div class="category-container">
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/12.jpg') }}" alt="category" />
+                <strong>Bangles</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/img2-middle.jpg') }}"  alt="category" />
+                <strong>Earings</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/img3-middle.jpg') }}" alt="category" />
+                <strong>Bracelets</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/img4-middle.jpg') }}" alt="category" />
+                <strong>Rings</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/w.jpg' ) }}" alt="category" />
+                <strong>Pendants</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/ank.jpg') }}" alt="category" />
+                <strong>Anklets</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/b.jpg') }}" alt="category" />
+                <strong>Bracelets</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/c.jpg') }}" alt="category" />
+                <strong>Chain</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/set.jpg') }}" alt="category" />
+                <strong>Sets</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/m.jpg') }}" alt="category" />
+                <strong>Mangalsutra</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/s.jpg') }}" alt="category" />
+                <strong>Silver Chain</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/12.jpg') }}" alt="category" />
+                <strong>Toe Rings</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/np.jpg') }}" alt="category" />
+                <strong>Nose Pins</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/kids.jpg') }}" alt="category" />
+                <strong>Kids</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/jhum.jpg') }}" alt="category" />
+                <strong>Jhumkas</strong>
+            </a>
+            <a href="#" class="category-box">
+                <img src="{{ url_for('static' , filename='images/5.jpg') }}" alt="category" />
+                <strong>Gold Idols</strong>
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-company-box">
+                <a href="#" class="logo">
+                    <img src="{{ url_for('static' , filename='images/logo.webp') }}" alt="logo" />
+                </a>
+                <p>Our jewellery is certified by prestigious authorities such as BIS Hallmark, SGL, IGI, and GSI to ensure each inspired by different facets of life. From gold and platinum to diamonds and gemstones, offers 100% certified jewellery designs</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!--***link-box***********-->
+            <div class="footer-link-box">
+                <strong>Main Links</strong>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Feature</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-link-box">
+                <strong>External Links</strong>
+                <ul>
+                    <li><a href="#">Our Products</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Terms and COnditions</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <span class="footer-owner">Made By SVSS</span>
+                <span class="copyright">&#169; Copyright 2024 - SVSS</span>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
